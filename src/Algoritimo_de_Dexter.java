@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Algoritimo_de_Dexter {
 
-    public int vertices[][];
+    private int vertices[][];
 
     public Algoritimo_de_Dexter(final int numVertices) {
         vertices = new int[numVertices][numVertices];
@@ -101,7 +101,6 @@ public class Algoritimo_de_Dexter {
         Collections.reverse(caminho);
         return caminho;
     }
-
     public int custoDaRota(List<Integer> caminho) {
         int custoTotal = 0;
         for (int i = 0; i < caminho.size() - 1; i++) {
