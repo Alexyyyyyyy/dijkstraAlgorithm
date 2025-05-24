@@ -21,40 +21,7 @@ public class teste_dexter {
 
     public static void main(String[] args) {
 
-        Algoritimo_de_Dexter fds = new Algoritimo_de_Dexter(15);
-
-        fds.criarAresta(encruzilhadaEsquecida, dirtmounth, 5);
-        fds.criarAresta(encruzilhadaEsquecida, picoDeCristal, 90);
-        fds.criarAresta(encruzilhadaEsquecida, penhascosUivantes, 150);
-        fds.criarAresta(encruzilhadaEsquecida, caminhoVerde, 120);
-        fds.criarAresta(encruzilhadaEsquecida, terraDoDescanso, 60);
-        fds.criarAresta(encruzilhadaEsquecida, ermosFungicos, 100);
-
-        fds.criarAresta(caminhoVerde, jardinsDaRainha, 80);
-        fds.criarAresta(caminhoVerde, canionDaNevoa, 130);
-
-        fds.criarAresta(terraDoDescanso, cidadeDasLagrimas, 30);
-
-        fds.criarAresta(jardinsDaRainha, canionDaNevoa, 80);
-        fds.criarAresta(jardinsDaRainha, ninhoProfundo, 90);
-
-        fds.criarAresta(canionDaNevoa, ermosFungicos, 140);
-
-        fds.criarAresta(ermosFungicos, ninhoProfundo, 100);
-        fds.criarAresta(ermosFungicos, hidroviaReal, 70);
-        fds.criarAresta(ermosFungicos, cidadeDasLagrimas, 80);
-
-        fds.criarAresta(hidroviaReal, baciaAntiga, 70);
-        fds.criarAresta(hidroviaReal, cidadeDasLagrimas, 20);
-
-        fds.criarAresta(cidadeDasLagrimas, baciaAntiga, 20);
-        fds.criarAresta(cidadeDasLagrimas, bordaDoReino, 20);
-
-        fds.criarAresta(ninhoProfundo, baciaAntiga, 20);
-
-        fds.criarAresta(baciaAntiga, bordaDoReino, 20);
-
-        fds.criarAresta(bordaDoReino, colmeia, 120);
+        Algoritimo_de_Dexter fds = getAlgoritimoDeDexter();
 
 
         Scanner in = new Scanner(System.in);
@@ -104,5 +71,43 @@ public class teste_dexter {
 
         }
 
+    }
+
+    private static Algoritimo_de_Dexter getAlgoritimoDeDexter() {
+        Algoritimo_de_Dexter fds = new Algoritimo_de_Dexter(15);
+
+        fds.criarAresta(encruzilhadaEsquecida, dirtmounth, 5);
+        fds.criarAresta(encruzilhadaEsquecida, picoDeCristal, 90);
+        fds.criarAresta(encruzilhadaEsquecida, penhascosUivantes, 150);
+        fds.criarAresta(encruzilhadaEsquecida, caminhoVerde, 120);
+        fds.criarAresta(encruzilhadaEsquecida, terraDoDescanso, 60);
+        fds.criarAresta(encruzilhadaEsquecida, ermosFungicos, 100);
+
+        fds.criarAresta(caminhoVerde, jardinsDaRainha, 80);
+        fds.criarAresta(caminhoVerde, canionDaNevoa, 130);
+
+        fds.criarAresta(terraDoDescanso, cidadeDasLagrimas, 30);
+
+        fds.criarAresta(jardinsDaRainha, canionDaNevoa, 80);
+        fds.criarAresta(jardinsDaRainha, ninhoProfundo, 90);
+
+        fds.criarAresta(canionDaNevoa, ermosFungicos, 140);
+
+        fds.criarAresta(ermosFungicos, ninhoProfundo, 100);
+        fds.criarAresta(ermosFungicos, hidroviaReal, 70);
+        fds.criarAresta(ermosFungicos, cidadeDasLagrimas, 80);
+
+        fds.criarAresta(hidroviaReal, baciaAntiga, 70);
+        fds.criarAresta(hidroviaReal, cidadeDasLagrimas, 20);
+
+        fds.criarAresta(cidadeDasLagrimas, baciaAntiga, 20);
+        fds.criarAresta(cidadeDasLagrimas, bordaDoReino, 20);
+
+        fds.criarAresta(ninhoProfundo, baciaAntiga, 20);
+
+        fds.criarAresta(baciaAntiga, bordaDoReino, 20);
+
+        fds.criarAresta(bordaDoReino, colmeia, 120);
+        return fds;
     }
 }
