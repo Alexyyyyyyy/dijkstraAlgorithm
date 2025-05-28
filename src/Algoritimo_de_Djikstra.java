@@ -1,11 +1,11 @@
 import java.security.InvalidParameterException;
 import java.util.*;
 
-public class Algoritimo_de_Dexter {
+public class Algoritimo_de_Djikstra {
 
     private int vertices[][];
 
-    public Algoritimo_de_Dexter(final int numVertices) {
+    public Algoritimo_de_Djikstra(final int numVertices) {
         vertices = new int[numVertices][numVertices];
     }
 

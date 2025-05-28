@@ -1,7 +1,7 @@
 import java.util.List;
 import java.util.Scanner;
 
-public class teste_dexter {
+public class Main {
 
     private static final int dirtmounth = 0;
     private static final int encruzilhadaEsquecida = 1;
@@ -21,43 +21,45 @@ public class teste_dexter {
 
     public static void main(String[] args) {
 
-        Algoritimo_de_Dexter fds = new Algoritimo_de_Dexter(15);
+        Algoritimo_de_Djikstra ADD = new Algoritimo_de_Djikstra(15);
 
-        fds.criarAresta(encruzilhadaEsquecida, dirtmounth, 5);
-        fds.criarAresta(encruzilhadaEsquecida, picoDeCristal, 90);
-        fds.criarAresta(encruzilhadaEsquecida, penhascosUivantes, 150);
-        fds.criarAresta(encruzilhadaEsquecida, caminhoVerde, 120);
-        fds.criarAresta(encruzilhadaEsquecida, terraDoDescanso, 60);
-        fds.criarAresta(encruzilhadaEsquecida, ermosFungicos, 100);
+        ADD.criarAresta(encruzilhadaEsquecida, dirtmounth, 5);
+        ADD.criarAresta(encruzilhadaEsquecida, picoDeCristal, 90);
+        ADD.criarAresta(encruzilhadaEsquecida, penhascosUivantes, 150);
+        ADD.criarAresta(encruzilhadaEsquecida, caminhoVerde, 120);
+        ADD.criarAresta(encruzilhadaEsquecida, terraDoDescanso, 60);
+        ADD.criarAresta(encruzilhadaEsquecida, ermosFungicos, 100);
 
-        fds.criarAresta(caminhoVerde, jardinsDaRainha, 80);
-        fds.criarAresta(caminhoVerde, canionDaNevoa, 130);
+        ADD.criarAresta(caminhoVerde, jardinsDaRainha, 80);
+        ADD.criarAresta(caminhoVerde, canionDaNevoa, 130);
 
-        fds.criarAresta(terraDoDescanso, cidadeDasLagrimas, 30);
+        ADD.criarAresta(terraDoDescanso, cidadeDasLagrimas, 30);
 
-        fds.criarAresta(jardinsDaRainha, canionDaNevoa, 80);
-        fds.criarAresta(jardinsDaRainha, ninhoProfundo, 90);
+        ADD.criarAresta(jardinsDaRainha, canionDaNevoa, 80);
+        ADD.criarAresta(jardinsDaRainha, ninhoProfundo, 90);
 
-        fds.criarAresta(canionDaNevoa, ermosFungicos, 140);
+        ADD.criarAresta(canionDaNevoa, ermosFungicos, 140);
 
-        fds.criarAresta(ermosFungicos, ninhoProfundo, 100);
-        fds.criarAresta(ermosFungicos, hidroviaReal, 70);
-        fds.criarAresta(ermosFungicos, cidadeDasLagrimas, 80);
+        ADD.criarAresta(ermosFungicos, ninhoProfundo, 100);
+        ADD.criarAresta(ermosFungicos, hidroviaReal, 70);
+        ADD.criarAresta(ermosFungicos, cidadeDasLagrimas, 80);
 
-        fds.criarAresta(hidroviaReal, baciaAntiga, 70);
-        fds.criarAresta(hidroviaReal, cidadeDasLagrimas, 20);
+        ADD.criarAresta(hidroviaReal, baciaAntiga, 70);
+        ADD.criarAresta(hidroviaReal, cidadeDasLagrimas, 20);
 
-        fds.criarAresta(cidadeDasLagrimas, baciaAntiga, 20);
-        fds.criarAresta(cidadeDasLagrimas, bordaDoReino, 20);
+        ADD.criarAresta(cidadeDasLagrimas, baciaAntiga, 20);
+        ADD.criarAresta(cidadeDasLagrimas, bordaDoReino, 20);
 
-        fds.criarAresta(ninhoProfundo, baciaAntiga, 20);
+        ADD.criarAresta(ninhoProfundo, baciaAntiga, 20);
 
-        fds.criarAresta(baciaAntiga, bordaDoReino, 20);
+        ADD.criarAresta(baciaAntiga, bordaDoReino, 20);
 
-        fds.criarAresta(bordaDoReino, colmeia, 120);
+        ADD.criarAresta(bordaDoReino, colmeia, 120);
 
 
         Scanner in = new Scanner(System.in);
+
+        while(true){
 
         System.out.println("------------------------------------------------------------------------");
         System.out.println("Seja bem vindo ao mapa de Hollow Knight");
@@ -90,20 +92,17 @@ public class teste_dexter {
         int destino = in.nextInt();
         System.out.println("------------------------------------------------------------------------\n");
 
-        List<Integer> caminho = fds.caminhoMinimo(origem, destino);
+        List<Integer> caminho = ADD.caminhoMinimo(origem, destino);
 
         for (Integer estacao : caminho) {
             System.out.print(estacao + " --> ");
         }
         System.out.println("fim da rota!");
 
-        int custoTotal = fds.custoDaRota(caminho);
+        int custoTotal = ADD.custoDaRota(caminho);
         System.out.println("\nCusto total da rota: " + custoTotal + " segundos!");
         System.out.println("\n------------------------------------------------------------------------");
 
-
-
-
-
+    }
     }
 }
