@@ -1,7 +1,11 @@
-import java.util.List;
+import java.util.*;
 import java.util.Scanner;
 
 public class Main {
+
+    /*
+    * Comecamos criando as variveis do tipo inteiro que respresentam as localidades no mapa que foram representados no grafo
+    * */
 
     private static final int dirtmounth = 0;
     private static final int encruzilhadaEsquecida = 1;
@@ -21,7 +25,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Algoritimo_de_Djikstra ADD = new Algoritimo_de_Djikstra(15);
+        Algoritmo_de_Djikstra ADD = new Algoritmo_de_Djikstra(15);
+
+        /*
+         * Apos criar o objeto ADD, chamamos o metodo criarAresta para poder atribuir os pesos entre cada conexao dos vertices
+         * */
 
         ADD.criarAresta(encruzilhadaEsquecida, dirtmounth, 5);
         ADD.criarAresta(encruzilhadaEsquecida, picoDeCristal, 90);
@@ -57,7 +65,7 @@ public class Main {
         ADD.criarAresta(bordaDoReino, colmeia, 120);
 
 
-        Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(System.in); //Classe responsavel por ler o imput do usuario
 
         while(true){
 
@@ -92,14 +100,14 @@ public class Main {
         int destino = in.nextInt();
         System.out.println("------------------------------------------------------------------------\n");
 
-        List<Integer> caminho = ADD.caminhoMinimo(origem, destino);
+        List<Integer> caminho = ADD.caminhoMinimo(origem, destino); //chamamos o metodo que nos retorna uma lista com os vertices que representam o caminho mais curto entre a origem e destino informado pelo usuario
 
         for (Integer estacao : caminho) {
             System.out.print(estacao + " --> ");
         }
         System.out.println("fim da rota!");
 
-        int custoTotal = ADD.custoDaRota(caminho);
+        int custoTotal = ADD.custoDaRota(caminho); //chamamos o metodo custoDaRota para poder informar o usuario o custo total da rota em segundos
         System.out.println("\nCusto total da rota: " + custoTotal + " segundos!");
         System.out.println("\n------------------------------------------------------------------------");
 

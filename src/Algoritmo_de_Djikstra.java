@@ -1,11 +1,11 @@
 import java.security.InvalidParameterException;
 import java.util.*;
 
-public class Algoritimo_de_Djikstra {
+public class Algoritmo_de_Djikstra {                                                                                     //Classe onde estao todos os metodos por tras da logica do Algoritmo de Djikstra
 
     private int vertices[][];
 
-    public Algoritimo_de_Djikstra(final int numVertices) {
+    public Algoritmo_de_Djikstra(final int numVertices) {
         vertices = new int[numVertices][numVertices];
     }
 
@@ -13,7 +13,7 @@ public class Algoritimo_de_Djikstra {
 
         if(peso >= 1) {
             vertices[noOrigem][noDestino] = peso;
-            vertices[noDestino][noOrigem] = peso;
+            vertices[noDestino][noOrigem] = peso;                                                                       //Metodo responsavel por adicionar o peso do noOrigem ao noDestino
         }
         else {
             throw new InvalidParameterException("O peso do no origem["+noOrigem+"] para o no destino ["+noDestino+"] nao pode ser negativo!");
@@ -26,7 +26,7 @@ public class Algoritimo_de_Djikstra {
         int minDistancia = Integer.MAX_VALUE;
         int noProximo = 0;
         for(Integer i : naoVisitados){
-            if(listaCusto[i] < minDistancia){
+            if(listaCusto[i] < minDistancia){                                                                           //Responsavel por encontrar o vertice ainda nao visitado com o menor custo acumulado, ele e usado para decidir qual vai ser o proximo no a ser visitado.
                 minDistancia = listaCusto[i];
                 noProximo = i;
             }
@@ -38,18 +38,19 @@ public class Algoritimo_de_Djikstra {
     private List<Integer> getVizinhos(final int no) {
         List<Integer> vizinhos = new ArrayList<Integer>();
         for(int i = 0; i < vertices.length; i++){
-            if(vertices[no][i] > 0){
+            if(vertices[no][i] > 0){                                                                                    //Retorna uma lista dos vertices que estao conectados diretamente ao vertice informado.
                 vizinhos.add(i);
             }
         }
         return vizinhos;
     }
 
-    private int getCusto(final int noOrigem, final int noDestino) {
+    private int getCusto(final int noOrigem, final int noDestino) {                                                     //Retorna uma lista dos vertices que estao conectados diretamente ao vertice informado.
         return vertices[noOrigem][noDestino];
     }
 
-    public List<Integer> caminhoMinimo(final int noOrigem, final int noDestino) {
+    public List<Integer> caminhoMinimo(final int noOrigem, final int noDestino) {                                       //Calcula o menor caminho entre um vertice de origem e destino, e retorna uma lista com a sequencia de vertices que compem esse caminho.
+
 
         int custo[] = new int[vertices.length];
         int antecessor[] = new int[vertices.length];
@@ -88,7 +89,7 @@ public class Algoritimo_de_Djikstra {
         return null;
     }
 
-    public List<Integer> caminhoMaisProximo(final int antecessor[], int noMaisProximo) {
+    public List<Integer> caminhoMaisProximo(final int antecessor[], int noMaisProximo) {                                //Reconstroi o caminho de destino a origem usando os vertores de antecessores e inverte a ordem deles do incio ao fim.
 
         List<Integer> caminho = new ArrayList<Integer>();
         caminho.add(noMaisProximo);
@@ -101,7 +102,7 @@ public class Algoritimo_de_Djikstra {
         Collections.reverse(caminho);
         return caminho;
     }
-    public int custoDaRota(List<Integer> caminho) {
+    public int custoDaRota(List<Integer> caminho) {                                                                     //Soma todos os pesos das conexoes ao longo do caminho e retorna o valor total da rota.
         int custoTotal = 0;
         for (int i = 0; i < caminho.size() - 1; i++) {
             int origem = caminho.get(i);
